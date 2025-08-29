@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medidas da página</title>
+</head>
+
+<style>
+    *{
+        background-color: aqua;
+    }
+    #desabiliar{
+        cursor: not-allowed;
+    }
+    #base {
+        position: fixed;
+        top: 100px;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border: 1px solid black;
+        padding: 10px;
+        text-align: center;
+    }
+</style>
+
+<body onscroll="roll()">
+
+    <div id="base">
+        <p>A página mostrará informações da página como a medida da rolagem e o tamanho da tela</p>
+        <button onclick="janela(); roll(); disable()" id="mostrar">Mostrar Detalhes</button>
+        <button onclick="janela(); roll()" id="atualizar">Atualizar Detalhes</button>
+        <div id="tela"></div>
+        <div id="rolagem"></div>
+    </div>
+
+    <div style="height: 10000px;width: 10000px;">
+    </div>
+
+    <script>
+        function disable() {
+            document.getElementById('mostrar').disabled = true;
+        }
+        function janela() {
+            document.getElementById("tela").innerHTML = "Largura interna da janela: " + window.innerWidth + "<br>Altura interna da janela: " + window.innerHeight;
+        }
+        function roll() {
+            document.getElementById("rolagem").innerHTML = "Posição de rolagem horizontal: " + window.scrollX + "<br>Posição de rolagem vertical: " + window.scrollY;
+        }
+
+    </script>
+</body>
+
+</html>
